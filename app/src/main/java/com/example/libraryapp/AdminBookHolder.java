@@ -70,7 +70,13 @@ public class AdminBookHolder extends RecyclerView.Adapter<AdminBookHolder.ViewHo
             updateButton.setOnClickListener(view -> {
                 // Handle update button click, e.g., navigate to an update activity
             });
-            Picasso.get().load(data.getImage_url()).into(singleLayoutImage);
+
+            if (data.getImage_url() != null && !data.getImage_url().isEmpty()) {
+                Picasso.get().load(data.getImage_url()).into(singleLayoutImage);
+            } else {
+
+                Picasso.get().load(R.drawable.default_image).into(singleLayoutImage);
+            }
 
             deleteButton.setOnClickListener(view -> {
                 // Handle delete button click

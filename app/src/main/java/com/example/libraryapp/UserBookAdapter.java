@@ -74,7 +74,14 @@ public class UserBookAdapter extends RecyclerView.Adapter<UserBookAdapter.ViewHo
             rateTextView.setText("Price: "+data.getBookPrice());
 
             quantityTextView.setText(String.valueOf(quantity));
-            Picasso.get().load(data.getImage_url()).into(singleLayoutImage);
+            //Picasso.get().load(data.getImage_url()).into(singleLayoutImage);
+            if (data.getImage_url() != null && !data.getImage_url().isEmpty()) {
+                Picasso.get().load(data.getImage_url()).into(singleLayoutImage);
+            } else {
+
+                Picasso.get().load(R.drawable.default_image)
+                        .into(singleLayoutImage);
+            }
 
             incrementButton.setOnClickListener(view -> {
                 quantity++;
