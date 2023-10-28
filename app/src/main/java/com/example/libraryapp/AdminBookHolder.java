@@ -1,5 +1,6 @@
 package com.example.libraryapp;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,12 +64,20 @@ public class AdminBookHolder extends RecyclerView.Adapter<AdminBookHolder.ViewHo
 
         public void bind(BookModel data) {
             bookName.setText(data.getBookName());
-            genre.setText(data.getGenre());
+            genre.setText(data.getBookGenre());
             author.setText(data.getBookAuthor());
-            price.setText("Price: "+data.getBookPrice().toString());
+            price.setText("Price : "+data.getBookPrice());
 
             updateButton.setOnClickListener(view -> {
                 // Handle update button click, e.g., navigate to an update activity
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    BookModel bookToEdit = datalist.get(position);
+
+                    Intent intent = new Intent(view.getContext(), EditBookActivity.class);
+                    intent.putExtra("bookToEdit", bookToEdit); // Pass the book data to the EditBookActivity
+                    view.getContext().startActivity(intent);
+                }
             });
 
             if (data.getImage_url() != null && !data.getImage_url().isEmpty()) {

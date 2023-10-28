@@ -1,8 +1,9 @@
 package com.example.libraryapp;
-public class BookModel {
+import java.io.Serializable;
+public class BookModel  implements Serializable {
     private String bookId;
     private String bookName;
-    private String genre;
+    private String bookGenre;
     private String bookAuthor;
     private String bookPrice;
     private String image_url;
@@ -14,7 +15,7 @@ public class BookModel {
     public BookModel(String bookId, String bookName, String genre, String bookAuthor, String bookPrice, String image_url) {
         this.bookId = bookId;
         this.bookName = bookName;
-        this.genre = genre;
+        this.bookGenre = genre;
         this.bookAuthor = bookAuthor;
         this.bookPrice = bookPrice;
         this.image_url = image_url;
@@ -36,12 +37,12 @@ public class BookModel {
         this.bookName = bookName;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getBookGenre() {
+        return bookGenre;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setBookGenre(String genre) {
+        this.bookGenre = genre;
     }
 
     public String getBookAuthor() {

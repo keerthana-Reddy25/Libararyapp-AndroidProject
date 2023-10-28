@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    TextInputLayout nameInputLayout, emailInputLayout, passwordInputLayout;
+    TextInputLayout nameInputLayout, emailInputLayout, passwordInputLayout, ageInputLayout; // Added age input
     Button registerBtn;
     TextView loginText;
     FirebaseAuth mAuth;
@@ -38,6 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         nameInputLayout = findViewById(R.id.registerNameInput);
         emailInputLayout = findViewById(R.id.registerEmailInput);
         passwordInputLayout = findViewById(R.id.registerPasswordInput);
+        ageInputLayout = findViewById(R.id.registerAgeInput); // Added age input
         registerBtn = findViewById(R.id.btnRegister);
         loginText = findViewById(R.id.loginTxt);
         mAuth = FirebaseAuth.getInstance();
@@ -60,41 +61,41 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void RegisterUser() {
-        String name= nameInputLayout.getEditText().getText().toString().trim();
+        String name = nameInputLayout.getEditText().getText().toString().trim();
         String email = emailInputLayout.getEditText().getText().toString().trim().toLowerCase();
         String password = passwordInputLayout.getEditText().getText().toString().trim();
-        if (TextUtils.isEmpty(name)||TextUtils.isEmpty(email)||TextUtils.isEmpty(password)){
-            Toast.makeText(this, "Please enter value of all fields", Toast.LENGTH_SHORT).show();
-        }else{
+        String age = ageInputLayout.getEditText().getText().toString().trim(); // Added age input
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(age)) { // Check for age input
+            Toast.makeText(this, "Please enter values for all fields", Toast.LENGTH_SHORT).show();
+        } else {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isComplete()){
-                        Map<String,Object> usermap = new HashMap<>();
+                    if (task.isSuccessful()) { // Check for task success
+                        Map<String, Object> usermap = new HashMap<>();
                         usermap.put("name", name);
-                        usermap.put("email",email);
-                        usermap.put("type","user");
+                        usermap.put("email", email);
+                        usermap.put("age", age); // Added age to user data
+                        usermap.put("type", "user");
                         String uid = mAuth.getCurrentUser().getUid();
                         mDatabase.child(uid).setValue(usermap).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isComplete()){
-                                    Intent mainIntent= new Intent(RegisterActivity.this,LoginActivity.class);
+                                if (task.isSuccessful()) { // Check for task success
+                                    Intent mainIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                                     mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(mainIntent);
                                     finish();
-                                }else{
-                                    Toast.makeText(RegisterActivity.this, "cannot save user data", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(RegisterActivity.this, "Cannot save user data", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
-
-                    }else{
-
-                        Toast.makeText(RegisterActivity.this, "Cannot Create User: "+task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Cannot Create User: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show(); // Show error message
                     }
                 }
             });
         }
     }
-    }
+}

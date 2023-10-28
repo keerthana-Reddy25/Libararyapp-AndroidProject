@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/background_light"
+    tools:context=".EditBookActivity">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/edit_book">
+
+    </ImageView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Book Details"
+        android:textSize="29dp"
+        android:gravity="center"
+        ></TextView>
+
+    <EditText
+        android:id="@+id/editBookNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Book Name"
+        android:layout_marginTop="30dp"
+        android:minHeight="48dp"></EditText>
+
+
+    <EditText
+        android:id="@+id/editGenreInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Genre"
+        android:minHeight="48dp"></EditText>
+
+
+    <EditText
+        android:id="@+id/editAuthorInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Author"
+        android:minHeight="48dp"></EditText>
+
+
+    <EditText
+        android:id="@+id/editPriceInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Price"
+        android:minHeight="48dp"></EditText>
+
+
+    <Button
+        android:id="@+id/updateBookButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+
+        android:text="Update Book"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Update Button"/>
+
+</LinearLayout>

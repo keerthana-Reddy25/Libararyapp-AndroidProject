@@ -70,7 +70,7 @@ public class UserBookAdapter extends RecyclerView.Adapter<UserBookAdapter.ViewHo
 
         public void bind(BookModel data) {
             nameTextView.setText(data.getBookName());
-            descriptionTextView.setText(data.getGenre());
+            descriptionTextView.setText(data.getBookGenre());
             rateTextView.setText("Price: "+data.getBookPrice());
 
             quantityTextView.setText(String.valueOf(quantity));

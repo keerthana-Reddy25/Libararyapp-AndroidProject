@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextInputLayout emailInputLayout,passwordInputLayout;
+    EditText emailInputLayout,passwordInputLayout;
     Button loginBtn;
     TextView registerText;
     private FirebaseAuth mAuth;
@@ -53,8 +54,8 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email= emailInputLayout.getEditText().getText().toString().trim().toLowerCase();
-                String password = passwordInputLayout.getEditText().getText().toString().trim();
+                String email= emailInputLayout.getText().toString().trim().toLowerCase();
+                String password = passwordInputLayout.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
                     Toast.makeText(LoginActivity.this, "Please fill Email and password", Toast.LENGTH_SHORT).show();

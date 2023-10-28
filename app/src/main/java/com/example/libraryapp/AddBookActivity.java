@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -30,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddBookActivity extends AppCompatActivity {
-    private TextInputLayout bookNameInput,bookGenreInput,bookAuthorInput,bookPriceInput;
+    private EditText bookNameInput,bookGenreInput,bookAuthorInput,bookPriceInput;
     private ImageView bookImage;
     private Toolbar toolbar;
     private DatabaseReference df;
@@ -116,10 +117,10 @@ public class AddBookActivity extends AppCompatActivity {
     }
 
     private void AddBookToDatabase(){
-        String bookName = bookNameInput.getEditText().getText().toString().trim();
-        String bookGenre = bookGenreInput.getEditText().getText().toString().trim();
-        String bookAuthor = bookAuthorInput.getEditText().getText().toString().trim();
-        String bookPrice = bookPriceInput.getEditText().getText().toString().trim();
+        String bookName = bookNameInput.getText().toString().trim();
+        String bookGenre = bookGenreInput.getText().toString().trim();
+        String bookAuthor = bookAuthorInput.getText().toString().trim();
+        String bookPrice = bookPriceInput.getText().toString().trim();
 
         if(TextUtils.isEmpty(bookName) || TextUtils.isEmpty(bookGenre) || TextUtils.isEmpty(bookAuthor) || TextUtils.isEmpty(bookPrice)){
             Toast.makeText(AddBookActivity.this, "All the fields are required", Toast.LENGTH_SHORT).show();
