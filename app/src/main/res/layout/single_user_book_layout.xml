@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- item_layout_cart.xml -->
-<!-- item_layout_cart.xml -->
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#9a739c"
+    android:fontFamily="@font/montserratalternates_regular"
     android:orientation="vertical">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:minWidth="800dp">
+
+
+
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="15dp">
         <ImageView
-            android:id="@+id/singleUserFoodImage"
+            android:id="@+id/singleUserBookImage"
             android:layout_width="150px"
             android:layout_margin="10dp"
             android:layout_height="150px"
@@ -25,34 +40,37 @@
                 android:id="@+id/nameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="18dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="4dp"
-                android:text="Name" />
+                android:text="Book Name : "
+                android:fontFamily="@font/montserratalternates_regular"/>
 
             <TextView
                 android:id="@+id/descriptionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="18dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
-                android:text="Description" />
+                android:text="Description : "
+                android:fontFamily="@font/montserratalternates_regular"/>
 
             <TextView
                 android:id="@+id/rateTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="18dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="8dp"
-                android:text="Rate" />
+                android:text="Price : "
+                android:fontFamily="@font/montserratalternates_regular"/>
 
         </LinearLayout>
 
@@ -63,13 +81,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp">
 
         <Button
             android:id="@+id/decrementButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-" />
+            android:minWidth="48dp"
+            android:text="-"
+            android:textSize="23dp"
+            android:backgroundTint="#6c6d70"/>
 
         <TextView
             android:id="@+id/quantityTextView"
@@ -82,13 +105,23 @@
             android:id="@+id/incrementButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+" />
+            android:minWidth="48dp"
+            android:text="+"
+            android:textSize="23dp"
+            android:backgroundTint="#6c6d70"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/addToCartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add to Cart" />
+        android:text="Add to Cart"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="20dp"
+        android:backgroundTint="#6c6d70"
+        android:fontFamily="@font/montserratalternates_regular"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
 

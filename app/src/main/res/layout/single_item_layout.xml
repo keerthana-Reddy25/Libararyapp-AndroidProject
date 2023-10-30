@@ -3,6 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#edc9f2"
     android:orientation="vertical">
     <LinearLayout
         android:orientation="horizontal"
@@ -18,7 +19,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
             <TextView
                 android:id="@+id/bookNameTextView"
                 android:layout_width="match_parent"
@@ -27,7 +29,8 @@
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
                 android:paddingBottom="4dp"
-                android:text="Book Name"
+                android:text="Book Name : "
+                android:fontFamily="@font/montserratalternates_regular"
                 android:textSize="18sp" />
 
             <TextView
@@ -38,8 +41,9 @@
                 android:paddingTop="4dp"
                 android:paddingEnd="16dp"
                 android:paddingBottom="4dp"
-                android:text="Genre"
-                android:textSize="16sp" />
+                android:text="Genre : "
+                android:fontFamily="@font/montserratalternates_regular"
+                android:textSize="18sp" />
             <TextView
                 android:id="@+id/authorTextView"
                 android:layout_width="match_parent"
@@ -48,8 +52,9 @@
                 android:paddingTop="4dp"
                 android:paddingEnd="16dp"
                 android:paddingBottom="8dp"
-                android:text="Author"
-                android:textSize="16sp" />
+                android:text="Author : "
+                android:fontFamily="@font/montserratalternates_regular"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/priceTextView"
@@ -59,8 +64,9 @@
                 android:paddingTop="4dp"
                 android:paddingEnd="16dp"
                 android:paddingBottom="8dp"
-                android:text="Price"
-                android:textSize="16sp" />
+                android:text="Price : "
+                android:fontFamily="@font/montserratalternates_regular"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -71,21 +77,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
 
         <Button
             android:id="@+id/updateButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Update" />
+            android:text="Update"
+            android:textSize="20dp"
+            android:backgroundTint="#5c2426"
+            android:fontFamily="@font/montserratalternates_regular"/>
 
         <Button
             android:id="@+id/deleteButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Delete" />
+            android:text="Delete"
+            android:textSize="20dp"
+            android:backgroundTint="#5c2426"
+            android:fontFamily="@font/montserratalternates_regular"/>
     </LinearLayout>
 </LinearLayout>
 

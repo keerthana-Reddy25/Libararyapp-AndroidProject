@@ -6,14 +6,14 @@ public class CartModel {
     private String book_id;
     private String name;
 
-    private String qty;
+    private int qty;
     private String rate;
     private Double total;
 
     public CartModel() {
     }
 
-    public CartModel(String id, String book_id, String name, String qty, String rate, Double total) {
+    public CartModel(String id, String book_id, String name, int qty, String rate, Double total) {
         this.id = id;
         this.book_id = book_id;
         this.name = name;
@@ -46,11 +46,11 @@ public class CartModel {
         this.name = name;
     }
 
-    public String getQty() {
+    public int getQty() {
         return qty;
     }
 
-    public void setQty(String qty) {
+    public void setQty(int qty) {
         this.qty = qty;
     }
 

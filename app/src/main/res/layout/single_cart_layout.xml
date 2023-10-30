@@ -4,33 +4,39 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#edc9f2"
     android:orientation="vertical">
 
     <TextView
+
         android:id="@+id/nameTextView"
         android:layout_width="match_parent"
         android:layout_weight="2"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:paddingStart="16dp"
+        android:textSize="20dp"
+        android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:text="Name" />
+        android:layout_marginTop="20dp"
+        android:text="Book Name"
+        android:fontFamily="@font/montserratalternates_regular"/>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
         <TextView
             android:id="@+id/quantityTextView"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
+            android:fontFamily="@font/montserratalternates_regular"
             android:text="Qty" />
 
         <TextView
@@ -38,23 +44,25 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="20dp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:text="Total" />
+            android:text="Total"
+            android:fontFamily="@font/montserratalternates_regular"/>
 
         <TextView
             android:id="@+id/rateTextView"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
+            android:fontFamily="@font/montserratalternates_regular"
             android:text="Rate" />
     </LinearLayout>
 
@@ -64,5 +72,9 @@
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#5c2426"
+        android:textSize="18dp"
+        android:fontFamily="@font/montserratalternates_regular"
         android:text="Delete" />
 </LinearLayout>

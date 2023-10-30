@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#edc9f2"
     tools:context=".LoginActivity">
 
     <!-- ImageView -->
@@ -15,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/LoginEmailInput"
         app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="#edc9f2"
         app:layout_constraintStart_toStartOf="parent"
         />
 
@@ -29,7 +31,9 @@
         android:hint="Enter your email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myImageView">
+        app:layout_constraintTop_toBottomOf="@+id/myImageView"
+        android:fontFamily="@font/montserratalternates_regular">
+
 
     </EditText>
 
@@ -40,11 +44,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:inputType="textPassword"
         android:hint="Enter Your password"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginEmailInput">
+        app:layout_constraintTop_toBottomOf="@+id/LoginEmailInput"
+        android:fontFamily="@font/montserratalternates_regular">
 
     </EditText>
 
@@ -55,9 +61,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="Login"
+        android:backgroundTint="#8a165a"
+        android:textSize="30dp"
         app:layout_constraintTop_toBottomOf="@+id/LoginPasswordInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/montserratalternates_regular"
         />
 
     <!-- TextView: "Don't have an account? Sign up Here" -->
@@ -70,9 +79,15 @@
         app:layout_constraintTop_toBottomOf="@+id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="#8273e6"
+        android:shadowColor="#8a165a"
+        android:textColor="@color/white"
+        android:minHeight="30dp"
+        android:textSize="20dp"
+        android:fontFamily="@font/montserratalternates_regular"
         />
 
-    <!-- TextView: "Your go to Book App" -->
+    <!-- TextView: "Your go to Book App"
     <TextView
         android:id="@+id/textView4"
         android:textSize="18sp"
@@ -84,7 +99,8 @@
         app:layout_constraintTop_toBottomOf="@+id/registerTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        android:fontFamily="@font/montserratalternates_regular"
+        />-->
 
     <!-- TextView: "Book App - Android" -->
     <TextView
@@ -95,9 +111,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:text="Book App - Android"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/registerTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/montserratalternates_regular"
         />
 
 

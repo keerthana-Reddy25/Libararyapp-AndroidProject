@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#edc9f2"
     tools:context=".OrderActivity">
     <include layout="@layout/main_toolbar" android:id="@+id/order_toolbar"/>
 
@@ -12,12 +13,26 @@
         android:layout_width="409dp"
         android:layout_height="665dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/order_toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/order_toolbar"
+        android:fontFamily="@font/montserratalternates_regular"/>
 
+    <!-- Add the TextView for the message -->
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Here are the orders"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:textSize="28sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/montserratalternates_regular"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

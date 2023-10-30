@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#edc9f2"
     tools:context=".CartActivity">
     <include layout="@layout/main_toolbar" android:id="@+id/cartToolbar"/>
 
@@ -11,14 +12,46 @@
         android:id="@+id/cartAdapter"
         android:layout_width="409dp"
         android:layout_height="665dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cartToolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/cartToolbar"
+        android:fontFamily="@font/montserratalternates_regular"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/cartToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <Button
+            android:id="@+id/checkoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Checkout"
+            android:textSize="20dp"
+            android:backgroundTint="#84a8b3"
+            android:fontFamily="@font/montserratalternates_regular"/>
+        <Button
+            android:id="@+id/goBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go Back"
+            android:backgroundTint="#84a8b3"
+            android:textSize="20dp"
+            android:layout_marginLeft="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/montserratalternates_regular"/>
+    </androidx.appcompat.widget.Toolbar>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

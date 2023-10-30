@@ -4,20 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#edc9f2"
     tools:context=".UserMainActivity">
-    <include layout="@layout/main_toolbar" android:id="@+id/cartToolbar"/>
+
+    <include layout="@layout/main_toolbar" android:id="@+id/cartToolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userBookAdapter"
         android:layout_width="409dp"
         android:layout_height="665dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cartToolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/cartToolbar"
+        app:layout_constraintVertical_bias="0.923" />
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/cartToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/cartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to Cart"
+            android:backgroundTint="#b82551"
+            android:fontFamily="@font/montserratalternates_regular"/>
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="170dp"
+            android:backgroundTint="#b82551"
+            android:fontFamily="@font/montserratalternates_regular"/>
+    </androidx.appcompat.widget.Toolbar>
 </androidx.constraintlayout.widget.ConstraintLayout>

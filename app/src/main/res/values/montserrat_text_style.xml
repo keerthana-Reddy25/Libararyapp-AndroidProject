@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MontserratTextStyle">
+        <item name="android:fontFamily">@font/montserratalternates_regular</item>
+    </style>
+</resources>

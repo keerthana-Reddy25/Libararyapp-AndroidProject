@@ -4,42 +4,59 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#d6d0bf"
+    android:background="#9a739c"
     android:layout_margin="10dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:paddingStart="16dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:text="Customer Details"
+        android:gravity="center"
+        android:layout_marginLeft="80dp"
+        android:fontFamily="@font/montserratalternates_regular">
+    </TextView>
 
     <TextView
         android:id="@+id/customerNameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:paddingStart="16dp"
         android:paddingEnd="8dp"
-        android:paddingTop="8dp"
+        android:paddingTop="18dp"
         android:paddingBottom="4dp"
-        android:text="Customer Name" />
+        android:text="Customer Name : "
+        android:fontFamily="@font/montserratalternates_regular"/>
 
     <TextView
         android:id="@+id/customerEmailTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:paddingStart="16dp"
         android:paddingEnd="8dp"
-        android:paddingTop="4dp"
+        android:paddingTop="14dp"
         android:paddingBottom="4dp"
-        android:text="Customer Email" />
+        android:text="Customer Email : "
+        android:fontFamily="@font/montserratalternates_regular"/>
 
     <TextView
         android:id="@+id/bookNameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:paddingStart="16dp"
         android:paddingEnd="8dp"
-        android:paddingTop="4dp"
+        android:paddingTop="14dp"
         android:paddingBottom="4dp"
-        android:text="Book Name" />
+        android:text="Book Name : "
+        android:fontFamily="@font/montserratalternates_regular"/>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -50,35 +67,38 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:paddingStart="16dp"
         android:paddingEnd="8dp"
-        android:paddingTop="4dp"
+        android:paddingTop="14dp"
         android:paddingBottom="4dp"
-        android:text="Quantity" />
+        android:text="Quantity : "
+        android:fontFamily="@font/montserratalternates_regular"/>
 
     <TextView
         android:id="@+id/rateTextView"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="20dp"
         android:paddingStart="16dp"
         android:paddingEnd="8dp"
-        android:paddingTop="4dp"
+        android:paddingTop="14dp"
         android:paddingBottom="4dp"
-        android:text="Rate" />
+        android:text="Rate : "
+        android:fontFamily="@font/montserratalternates_regular"/>
 
     <TextView
         android:id="@+id/totalTextView"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:paddingStart="16dp"
         android:paddingEnd="8dp"
-        android:paddingTop="4dp"
+        android:paddingTop="14dp"
         android:paddingBottom="8dp"
-        android:text="Total" />
+        android:text="Total : "
+        android:fontFamily="@font/montserratalternates_regular"/>
     </LinearLayout>
 </LinearLayout>

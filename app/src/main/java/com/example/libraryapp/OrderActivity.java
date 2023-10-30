@@ -37,7 +37,7 @@ public class OrderActivity extends AppCompatActivity {
 
         mToolbar = findViewById(R.id.order_toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Orders");
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();

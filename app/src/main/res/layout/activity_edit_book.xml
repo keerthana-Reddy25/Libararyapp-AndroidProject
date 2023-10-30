@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/background_light"
+    android:background="#edc9f2"
     tools:context=".EditBookActivity">
     <ImageView
         android:layout_width="wrap_content"
@@ -23,6 +23,8 @@
         android:text="Edit Book Details"
         android:textSize="29dp"
         android:gravity="center"
+        android:textColor="#71a843"
+        android:fontFamily="@font/montserratalternates_regular"
         ></TextView>
 
     <EditText
@@ -30,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Book Name"
+        android:fontFamily="@font/montserratalternates_regular"
         android:layout_marginTop="30dp"
         android:minHeight="48dp"></EditText>
 
@@ -40,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="Genre"
+        android:fontFamily="@font/montserratalternates_regular"
         android:minHeight="48dp"></EditText>
 
 
@@ -49,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="Author"
+        android:fontFamily="@font/montserratalternates_regular"
         android:minHeight="48dp"></EditText>
 
 
@@ -58,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="Price"
+        android:fontFamily="@font/montserratalternates_regular"
         android:minHeight="48dp"></EditText>
 
 
@@ -66,9 +72,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-
+        android:fontFamily="@font/montserratalternates_regular"
         android:text="Update Book"
+        android:textSize="20dp"
         android:importantForAccessibility="yes"
+        android:backgroundTint="#574547"
         android:contentDescription="Update Button"/>
 
 </LinearLayout>

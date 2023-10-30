@@ -65,12 +65,12 @@ public class UserBookAdapter extends RecyclerView.Adapter<UserBookAdapter.ViewHo
             incrementButton = itemView.findViewById(R.id.incrementButton);
             decrementButton = itemView.findViewById(R.id.decrementButton);
 
-            singleLayoutImage = itemView.findViewById(R.id.singleUserFoodImage);
+            singleLayoutImage = itemView.findViewById(R.id.singleUserBookImage);
         }
 
         public void bind(BookModel data) {
             nameTextView.setText(data.getBookName());
-            descriptionTextView.setText(data.getBookGenre());
+            descriptionTextView.setText("Genre : "+data.getBookGenre() + "Author : "+data.getBookAuthor());
             rateTextView.setText("Price: "+data.getBookPrice());
 
             quantityTextView.setText(String.valueOf(quantity));

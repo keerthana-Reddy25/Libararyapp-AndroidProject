@@ -28,6 +28,7 @@ import java.util.List;
 public class UserMainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     Toolbar mToolbar;
+    private Button cartButton, logoutButton;
 
     private RecyclerView recyclerView;
     private UserBookAdapter adapter;
@@ -46,6 +47,9 @@ public class UserMainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new UserBookAdapter(dataList);
         recyclerView.setAdapter(adapter);
+        cartButton = findViewById(R.id.cartButton);
+        logoutButton = findViewById(R.id.logoutButton);
+
 
         DatabaseReference bookDatabase =mDatabase.child("books");
         bookDatabase.addValueEventListener(new ValueEventListener() {
@@ -70,9 +74,23 @@ public class UserMainActivity extends AppCompatActivity {
 
             }
         });
+        cartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserMainActivity.this, CartActivity.class));
+
+            }
+        });
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserMainActivity.this, LoginActivity.class));
+
+            }
+        });
 
     }
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.user_menu,menu);
         return true;
@@ -91,7 +109,7 @@ public class UserMainActivity extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 
 }

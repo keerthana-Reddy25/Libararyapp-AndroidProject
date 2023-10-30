@@ -6,10 +6,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +34,7 @@ public class CartActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     FirebaseAuth mAuth;
+    private Button checkoutButton, goBackButton;
     private List<CartModel> dataList = new ArrayList<>();
     DatabaseReference mDatabase;
     CartWithDeleteAdapter adapter;
@@ -51,6 +56,8 @@ public class CartActivity extends AppCompatActivity {
         adapter = new CartWithDeleteAdapter(dataList);
         recyclerView.setAdapter(adapter);
         DatabaseReference cartDatabase= mDatabase.child("cart").child(uid);
+        checkoutButton = findViewById(R.id.checkoutButton);
+        goBackButton = findViewById(R.id.goBackButton);
         cartDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -74,8 +81,52 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
+        checkoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
+                mDatabase.child("users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String userName= snapshot.child("name").getValue().toString();
+                        String email=snapshot.child("email").getValue().toString();
+                        for(CartModel cart : dataList){
+                            Map<String,Object> orderMap= new HashMap<>();
+                            orderMap.put("book_name",cart.getName());
+                            orderMap.put("qty",cart.getQty());
+                            orderMap.put("rate",cart.getRate());
+                            orderMap.put("total",cart.getTotal());
+                            orderMap.put("customerName",userName);
+                            orderMap.put("email",email);
+                            orderMap.put("customer_id",uid);
+
+                            mDatabase.child("orders").push().setValue(orderMap);
+
+                        }
+                        mDatabase.child("cart").child(uid).removeValue();
+                        Toast.makeText(CartActivity.this, "Your order is successfully created!!", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+            }
+        });
+
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CartActivity.this, UserMainActivity.class));
+                finish();
+            }
+        });
+
     }
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.cart_menu,menu);
         return true;
@@ -91,7 +142,7 @@ public class CartActivity extends AppCompatActivity {
                     String email=snapshot.child("email").getValue().toString();
                     for(CartModel cart : dataList){
                         Map<String,Object> orderMap= new HashMap<>();
-                        orderMap.put("food_name",cart.getName());
+                        orderMap.put("book_name",cart.getName());
                         orderMap.put("qty",cart.getQty());
                         orderMap.put("rate",cart.getRate());
                         orderMap.put("total",cart.getTotal());
@@ -113,6 +164,6 @@ public class CartActivity extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 }
