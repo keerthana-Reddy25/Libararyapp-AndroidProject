@@ -68,5 +68,16 @@ public class BookModel  implements Serializable {
     public void setImage_url(String image_url) {
         this.image_url = image_url;
     }
+    @Override
+    public String toString() {
+        return "BookModel{" +
+                "bookId='" + bookId + '\'' +
+                ", bookName='" + bookName + '\'' +
+                ", bookGenre='" + bookGenre + '\'' +
+                ", bookAuthor='" + bookAuthor + '\'' +
+                ", bookPrice='" + bookPrice + '\'' +
+                ", image_url='" + image_url + '\'' +
+                '}';
+    }
 }
 

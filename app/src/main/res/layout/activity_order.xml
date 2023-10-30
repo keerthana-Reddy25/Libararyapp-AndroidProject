@@ -27,11 +27,11 @@
         android:id="@+id/messageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Here are the orders"
+        android:text="Order Details"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="56dp"
         android:textSize="28sp"
         android:textColor="#FFFFFF"
         android:fontFamily="@font/montserratalternates_regular"/>

@@ -96,7 +96,6 @@ public class UserBookAdapter extends RecyclerView.Adapter<UserBookAdapter.ViewHo
             });
 
             addToCartButton.setOnClickListener(view -> {
-                // Handle "Add to Cart" button click with the selected quantity
                 Map<String, Object> cartMap = new HashMap<>();
                 cartMap.put("book_id",data.getBookId());
                 cartMap.put("name",data.getBookName());
@@ -108,8 +107,7 @@ public class UserBookAdapter extends RecyclerView.Adapter<UserBookAdapter.ViewHo
                 cartMap.put("total",total);
                 String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-                reference.child("cart")
-                        .child(uid).push().setValue(cartMap);
+                reference.child("cart").child(uid).push().setValue(cartMap);
                 quantity=0;
                 quantityTextView.setText(String.valueOf(quantity));
 

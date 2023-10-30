@@ -82,21 +82,16 @@ public class AddBookActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
             imageUri = data.getData();
-
-            // Upload the selected image to Firebase Storage
             StorageReference imageRef = storageRef.child("images");
             UploadTask uploadTask = imageRef.putFile(imageUri);
             uploadTask.addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                     if (task.isSuccessful()) {
-                        // Image uploaded successfully
-                        // You can also get the download URL of the uploaded image
                         imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri downloadUri) {
                                 DownloadUrl=downloadUri.toString();
-                                // Set the downloaded image URL to the ImageView
                                 Picasso.get().load(downloadUri).into(bookImage);
                             }
                         });

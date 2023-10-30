@@ -30,10 +30,9 @@ import java.util.Map;
 
 public class CartActivity extends AppCompatActivity {
 
-    Toolbar mToolbar;
-
     private RecyclerView recyclerView;
     FirebaseAuth mAuth;
+    Toolbar mToolbar;
     private Button checkoutButton, goBackButton;
     private List<CartModel> dataList = new ArrayList<>();
     DatabaseReference mDatabase;
@@ -45,7 +44,7 @@ public class CartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
         mToolbar= findViewById(R.id.cartToolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Cart");
+       // getSupportActionBar().setTitle("Cart");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mAuth= FirebaseAuth.getInstance();
         mDatabase= FirebaseDatabase.getInstance().getReference();
@@ -72,9 +71,7 @@ public class CartActivity extends AppCompatActivity {
                     Log.e("FirebaseError", "Error parsing data: " + e.getMessage());
                 }
                 adapter.notifyDataSetChanged();
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -99,21 +96,16 @@ public class CartActivity extends AppCompatActivity {
                             orderMap.put("customerName",userName);
                             orderMap.put("email",email);
                             orderMap.put("customer_id",uid);
-
                             mDatabase.child("orders").push().setValue(orderMap);
-
                         }
                         mDatabase.child("cart").child(uid).removeValue();
                         Toast.makeText(CartActivity.this, "Your order is successfully created!!", Toast.LENGTH_SHORT).show();
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
                     }
                 });
-
-
             }
         });
 
@@ -126,44 +118,5 @@ public class CartActivity extends AppCompatActivity {
         });
 
     }
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.cart_menu,menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId()==R.id.checkout_menu){
-            String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
-            mDatabase.child("users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String userName= snapshot.child("name").getValue().toString();
-                    String email=snapshot.child("email").getValue().toString();
-                    for(CartModel cart : dataList){
-                        Map<String,Object> orderMap= new HashMap<>();
-                        orderMap.put("book_name",cart.getName());
-                        orderMap.put("qty",cart.getQty());
-                        orderMap.put("rate",cart.getRate());
-                        orderMap.put("total",cart.getTotal());
-                        orderMap.put("customerName",userName);
-                        orderMap.put("email",email);
-                        orderMap.put("customer_id",uid);
-
-                        mDatabase.child("orders").push().setValue(orderMap);
-
-                    }
-                    mDatabase.child("cart").child(uid).removeValue();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
 
 }

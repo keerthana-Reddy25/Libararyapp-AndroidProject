@@ -50,7 +50,6 @@ public class UserMainActivity extends AppCompatActivity {
         cartButton = findViewById(R.id.cartButton);
         logoutButton = findViewById(R.id.logoutButton);
 
-
         DatabaseReference bookDatabase =mDatabase.child("books");
         bookDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,7 +65,6 @@ public class UserMainActivity extends AppCompatActivity {
                     Log.e("FirebaseError", "Error parsing data: " + e.getMessage());
                 }
                 adapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -78,7 +76,6 @@ public class UserMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserMainActivity.this, CartActivity.class));
-
             }
         });
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -88,28 +85,5 @@ public class UserMainActivity extends AppCompatActivity {
 
             }
         });
-
     }
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.user_menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId()==R.id.user_cart){
-            startActivity(new Intent(UserMainActivity.this, CartActivity.class));
-
-        }
-        if(item.getItemId()==R.id.menu_user_logout){
-            mAuth.signOut();
-            Intent loginIntent = new Intent(UserMainActivity.this, LoginActivity.class);
-            startActivity(loginIntent);
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
-
-
 }

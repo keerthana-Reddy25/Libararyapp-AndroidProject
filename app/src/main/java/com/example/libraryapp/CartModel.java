@@ -69,4 +69,16 @@ public class CartModel {
     public void setTotal(Double total) {
         this.total = total;
     }
+
+    @Override
+    public String toString() {
+        return "CartModel{" +
+                "id='" + id + '\'' +
+                ", book_id='" + book_id + '\'' +
+                ", name='" + name + '\'' +
+                ", qty=" + qty +
+                ", rate='" + rate + '\'' +
+                ", total=" + total +
+                '}';
+    }
 }

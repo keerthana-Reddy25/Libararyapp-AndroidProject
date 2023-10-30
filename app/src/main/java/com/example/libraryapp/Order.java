@@ -97,4 +97,19 @@ public class Order {
     public void setTotal(Double total) {
         this.total = total;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "Id='" + Id + '\'' +
+                ", orderId='" + orderId + '\'' +
+                ", customerName='" + customerName + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", email='" + email + '\'' +
+                ", bookName='" + bookName + '\'' +
+                ", qty=" + qty +
+                ", rate='" + rate + '\'' +
+                ", total=" + total +
+                '}';
+    }
 }

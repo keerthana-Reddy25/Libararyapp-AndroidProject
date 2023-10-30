@@ -19,7 +19,6 @@ import java.util.List;
 public class AdminBookHolder extends RecyclerView.Adapter<AdminBookHolder.ViewHolder> {
     private List<BookModel> datalist;
     private DatabaseReference df;
-
     public AdminBookHolder(List<BookModel> dataList, DatabaseReference df) {
         this.datalist = dataList;
         this.df = df;
@@ -36,15 +35,11 @@ public class AdminBookHolder extends RecyclerView.Adapter<AdminBookHolder.ViewHo
     public void onBindViewHolder(@NonNull AdminBookHolder.ViewHolder holder, int position) {
         BookModel data = datalist.get(position);
         holder.bind(data);
-
     }
-
     @Override
     public int getItemCount() {
         return datalist.size();
     }
-
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView bookName,genre,author,price;
         private ImageView singleLayoutImage;
@@ -69,13 +64,11 @@ public class AdminBookHolder extends RecyclerView.Adapter<AdminBookHolder.ViewHo
             price.setText("Price : "+data.getBookPrice());
 
             updateButton.setOnClickListener(view -> {
-                // Handle update button click, e.g., navigate to an update activity
                 int position = getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
                     BookModel bookToEdit = datalist.get(position);
-
                     Intent intent = new Intent(view.getContext(), EditBookActivity.class);
-                    intent.putExtra("bookToEdit", bookToEdit); // Pass the book data to the EditBookActivity
+                    intent.putExtra("bookToEdit", bookToEdit);
                     view.getContext().startActivity(intent);
                 }
             });
@@ -83,22 +76,16 @@ public class AdminBookHolder extends RecyclerView.Adapter<AdminBookHolder.ViewHo
             if (data.getImage_url() != null && !data.getImage_url().isEmpty()) {
                 Picasso.get().load(data.getImage_url()).into(singleLayoutImage);
             } else {
-
                 Picasso.get().load(R.drawable.default_image).into(singleLayoutImage);
             }
 
             deleteButton.setOnClickListener(view -> {
-                // Handle delete button click
                 int position = getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
                     BookModel itemToDelete = datalist.get(position);
                     String itemKey = itemToDelete.getBookId();
-
-                    // Remove the item from the list and the database
                     datalist.remove(position);
                     notifyItemRemoved(position);
-
-                    // Delete the item from the database
                     df.child("books").child(itemKey).removeValue();
                 }
             });

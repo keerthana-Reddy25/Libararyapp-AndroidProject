@@ -23,27 +23,21 @@ public class OrderActivity extends AppCompatActivity {
 
     Toolbar mToolbar;
     RecyclerView recyclerView;
-
     DatabaseReference mDatabase;
-
     List<Order> dataList = new ArrayList<>();
-
     OrderAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-
         mToolbar = findViewById(R.id.order_toolbar);
         setSupportActionBar(mToolbar);
-
+        getSupportActionBar().setTitle("Orders");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
         recyclerView = findViewById(R.id.orderList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         adapter = new OrderAdapter(dataList);
         recyclerView.setAdapter(adapter);
 
